@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IAB330_Scruff.MDPDetail"
+             Title="Home">
+    <!--THIS IS THE TESTING PAGE, only contains links to other pages-->
+    <ScrollView>
+        <StackLayout Spacing="0">
+            <Grid VerticalOptions="FillAndExpand">
+            </Grid>
+            <Label HorizontalOptions="Center" FontSize="22" Text="Ruff!"></Label>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                
+            </Grid>
+                        
+            <Button HeightRequest="60" x:Name="gmapsButton" Text="Browse ads" Image="https://www.blocktray.com/scruff/dog.jpeg" Clicked="gmapsButton_Clicked"></Button>
+            <Button HeightRequest="60" Text="Search for Ads" Clicked="searchButton_Clicked"></Button>
+            <Button HeightRequest="60" x:Name="test" Text="Create a Ad" Clicked="createAdButton_Clicked"></Button>
+            <Button HeightRequest="60" x:Name="testbutton" Text="Open your profile" Clicked="createAdButton_Clicked"></Button>
+            <Button HeightRequest="60" x:Name="test3" Text="Log out" Clicked="Handle_Clicked"></Button>
+            <Button IsVisible="false" x:Name="loginButton" Text="John's Login testing" Clicked="loginButton_Clicked"></Button>
+            <Button IsVisible="false" x:Name="userRegisterButton" Text="Server demo" Clicked="userRegisterButton_Clicked"></Button>
+            <Button IsVisible="false" x:Name="openAd" Text="Open a ad" Clicked="openAd_Clicked"></Button>
+            
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

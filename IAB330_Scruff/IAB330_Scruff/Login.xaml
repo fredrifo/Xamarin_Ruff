@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IAB330_Scruff.Login"
+             Title="Login"
+             BackgroundColor="#1a5e99">
+    
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Margin="10">
+            <Grid VerticalOptions="FillAndExpand">
+                <Image Source="ruffLogo3.png" HorizontalOptions="Center" WidthRequest="100"/> <!--Ruff logo-->
+            </Grid>
+            <Label HorizontalOptions="Center" FontSize="Large" Text="Login" TextColor="White"></Label> <!--"Login" label-->
+            <!--Email-->
+            <Label Text="Email" TextColor="White"></Label> <!--Email label-->
+            <Entry x:Name="emailEntry" Text="test@live.no" Placeholder="Enter your email" TextColor="White"></Entry> <!--Email entry-->
+            <!--Password-->
+            <Label Text="Password" TextColor="White"></Label> <!--Password label-->
+            <Entry x:Name="passwordEntry" IsPassword="True" Text="test" Placeholder="Enter your password" TextColor="White"></Entry> <!--Password entry-->
+            <Grid IsVisible="false" HorizontalOptions="CenterAndExpand" x:Name="loadbar">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Margin="10" HorizontalOptions="CenterAndExpand" TextColor="White" Text="Logging in"></Label>
+                <ActivityIndicator Grid.Row="1" Color="White" IsRunning="true"/>
+            </Grid>
+            <Button x:Name="loginButton" Clicked="loginButton_Clicked" Text="Login"></Button> <!--Login button-->
+            <Button x:Name="registerButton" Clicked="registerButton_Clicked" Text="Register"></Button> <!--Register button-->
+        </StackLayout>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
+    <PackageReference Include="Xam.Plugins.Notifier" Version="3.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="3.3.0.912540" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="3.3.0.912540" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Xam.Plugin.Media" Version="2.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\EmptyClass.cs" />
+    <Compile Remove="Models\CompleteAd.cs" />
+    <Compile Remove="BackendCommunication\DownloadAd.cs" />
+    <Compile Remove="BackendCommunication\ImageDownload.cs" />
+    <Compile Remove="MyPage.xaml.cs" />
+    <Compile Remove="CreateAd.xaml.cs" />
+    <Compile Remove="RegisterAd.xaml.cs" />
+    <Compile Remove="AnimalRegister.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="MDPDetail.xaml.cs">
+      <DependentUpon>MDPDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="MDPMenuItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BackendCommunication\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="CreateAd.xaml" />
+    <EmbeddedResource Remove="RegisterAd.xaml" />
+    <EmbeddedResource Remove="MyPage.xaml" />
+    <EmbeddedResource Remove="AnimalRegister.xaml" />
+  </ItemGroup>
+</Project>

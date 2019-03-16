@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="IAB330_Scruff.Settings">
+    <ContentPage.Content>
+       <StackLayout>
+            <Label FontSize="20" HorizontalOptions="CenterAndExpand" Text="Change password"></Label>
+            <Label Text="Enter a desiered password. At least 4 characters."></Label>
+            <Entry x:Name="passwordEntry" IsPassword="True" HorizontalOptions="CenterAndExpand" Placeholder="Enter new password"></Entry>
+            <Button HorizontalOptions="CenterAndExpand" Text="Change password" Clicked="ChangePassword_async"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IAB330_Scruff.Register"
+             Title="Register">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="10">
+                <Label HorizontalOptions="CenterAndExpand" FontSize="Large" Text="Create user account"></Label>
+                <Entry x:Name="firstNameEntry" Placeholder="Enter your first name"></Entry> <!--First name entry-->
+                <Entry x:Name="lastNameEntry" Placeholder="Enter your last name"></Entry> <!--Last name entry-->
+                <Entry x:Name="emailEntry" Placeholder="Enter your email"></Entry> <!--Email entry-->
+                <Entry x:Name="phoneEntry" Placeholder="Enter your phone number"></Entry> <!--Phone number entry-->
+                <Entry x:Name="passwordRegisterEntry" Placeholder="Enter your password" IsPassword="True"></Entry> <!--Password entry-->
+                <Button Clicked="RegisterUserButton_ClickedAsync" x:Name="RegisterButton" Text="Register" VerticalOptions="End"></Button> <!--Register button-->
+                <Button Clicked="Handle_Clicked" x:Name="test3" Text="Cancel" VerticalOptions="End"></Button> <!--Cancel button-->
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

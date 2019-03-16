@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="IAB330_Scruff.MyAds">
+    <ContentPage.Content>
+        
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" IsVisible="true" HorizontalOptions="CenterAndExpand" x:Name="loadbar">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Margin="10" HorizontalOptions="CenterAndExpand" TextColor="Black" Text="Downloading your ads"></Label>
+                <ActivityIndicator Grid.Row="1" Color="Black" IsRunning="true"/>
+            </Grid>
+           
+            <!--Listview for the animals owned by the user-->
+            <ListView x:Name="sss" RowHeight="100" ItemTapped="adSelectedAsync" Grid.Row="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                            
+                            <!--Template for the listview cells-->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0" Grid.Column="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" FontSize="18" Text="{Binding adTitle}"></Label> <!--Ad title label-->
+                                        <Label Grid.Row="1" FontSize="18" Text="{Binding animal.breed}"></Label> <!--Animal breed label-->
+                                        <Label Grid.Row="2" FontSize="18" Text="{Binding adPrice}"></Label> <!--Animal price label-->
+                                    </Grid>
+                                <Image Grid.Column="0" Grid.Row="0" Aspect="AspectFill" Source="{Binding adImage.Source}"></Image> <!--Animal image-->
+                            
+                            </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+       
+    </ContentPage.Content>
+</ContentPage>

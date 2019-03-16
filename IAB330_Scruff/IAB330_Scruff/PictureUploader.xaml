@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="IAB330_Scruff.PictureUploader">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <!--Image preiew-->
+                <Image
+                    BackgroundColor= "Black"
+                    x:Name="imagePreview"
+                    HeightRequest="200"/>
+                
+                <!--Label and entry for post text-->
+                <StackLayout>
+                    <Label Text="Post text" x:Name="postTextView"></Label>
+                    <Editor AutoSize="TextChanges" MinimumHeightRequest="30" x:Name="postText"></Editor>
+                </StackLayout>
+
+                <!--Button layout-->
+                <StackLayout 
+                    Orientation="Horizontal"
+                    VerticalOptions="EndAndExpand">
+
+                    <!--Open the camera button-->
+                    <Button
+                        x:Name="openCamera"
+                        Text="Open Camera"
+                        Clicked="openCamera_Clicked"
+                        BackgroundColor="SteelBlue"
+                        TextColor="Black"
+                        HorizontalOptions="FillAndExpand"/>
+                    
+                    <!--Select a gallery photo button-->
+                    <Button
+                        x:Name="uploadPic"
+                        Clicked="uploadPic_Clicked"
+                        Text="Pick a photo"
+                        BackgroundColor="SteelBlue"
+                        TextColor="Black"
+                        HorizontalOptions="FillAndExpand"/>
+                    
+                </StackLayout>
+                <!--Progress label-->
+            <Grid IsVisible="false" HorizontalOptions="CenterAndExpand" x:Name="loading">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Margin="10" HorizontalOptions="CenterAndExpand" TextColor="Black" Text="Uploading"></Label>
+                <ActivityIndicator Grid.Row="1" Color="Black" IsRunning="true"/>
+            </Grid>                <!--Upload button-->
+                <Button Text="UPLOAD" Clicked="UploadPicture"></Button>
+            </StackLayout>
+            
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

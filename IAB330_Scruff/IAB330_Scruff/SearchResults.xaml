@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="Home" xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="IAB330_Scruff.SearchResults">
+    
+    <!--These items are showed on the app bar-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="add.png" Clicked="AddToolbarItem_Clicked"/>
+        <ToolbarItem Icon="search.png" Clicked="SearchToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" IsVisible="true" HorizontalOptions="CenterAndExpand" x:Name="loadbar">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Margin="10" HorizontalOptions="CenterAndExpand" TextColor="Black" Text="Loading results"></Label>
+                <ActivityIndicator Grid.Row="1" Color="Black" IsRunning="true"/>
+            </Grid>
+            <!--Listview for the ads shown-->
+            <ListView x:Name="sss" RowHeight="120" ItemTapped="adSelectedAsync" Grid.Row="0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!--Each of the item cells will be a grid, for the ad title, animal breed, and ad price-->
+                            <ViewCell.View>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid Grid.Row="0" Grid.Column="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <!--Three labels for the ad's title, animal breed, and the ad's price-->
+                                        <Label Grid.Row="0" Text="{Binding adTitle}"></Label>
+                                        <Label Grid.Row="1" Text="{Binding animal.breed,StringFormat='Race: {0:N}'}"></Label>
+                                        <Label Grid.Row="2" Text="{Binding adPrice,StringFormat='Price: ${0:N}'}"></Label>
+                                    </Grid>
+                                    <!--Ad image-->
+                                    <Image Grid.Column="0" Grid.Row="0" Aspect="AspectFill" Source="{Binding adImage.Source}"></Image>
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

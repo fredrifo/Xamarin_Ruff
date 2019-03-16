@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IAB330_Scruff.AnimalRegister">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            
+            <Picker x:Name="animalTypePicker"  Title="Animal" SelectedIndexChanged="animalTypePicker_SelectedIndexChanged">
+                <Picker.Items>
+                    <x:String>Dog</x:String>
+                    <x:String>Cat</x:String>
+                    <x:String>Bird</x:String>
+                    <x:String>Lizard</x:String>
+                    <x:String>Fish</x:String>
+                </Picker.Items>
+            </Picker>
+            
+            <Entry x:Name="animalNameEntry" Placeholder="Enter the animal's name"></Entry>
+            
+            <Picker x:Name="breedPicker" Title="Breed" IsEnabled="False" SelectedIndexChanged="breedPicker_SelectedIndexChanged">
+                <Picker.Items>
+                    <x:String>Rotweiler</x:String>
+                    <x:String>Labrodor</x:String>
+                </Picker.Items>
+            </Picker>
+            
+            <Picker x:Name="genderPicker" Title="Gender" SelectedIndexChanged="genderPicker_SelectedIndexChanged">
+                <Picker.Items>
+                    <x:String>Male</x:String>
+                    <x:String>Female</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label x:Name="TESTgenderPickedLabel"></Label>
+
+            <DatePicker x:Name="dobPicker"></DatePicker>
+
+            <StackLayout Orientation="Horizontal">
+                <Image x:Name="animalPhotoImage"></Image>
+                <Button x:Name="uploadAnimalImage" Text="Upload Photo" Clicked="uploadAnimalImage_Clicked"></Button>
+            </StackLayout>
+            
+            <ScrollView>
+                <StackLayout>
+                    <Label Text="About Me"></Label>
+                    <Editor 
+                        x:Name="animalAboutEditor"
+                        HeightRequest="300">
+                    </Editor>
+                </StackLayout>
+            </ScrollView>
+            
+            <Button x:Name="RegisterButton" Text="Register" VerticalOptions="End" Clicked="RegisterButton_Clicked"></Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

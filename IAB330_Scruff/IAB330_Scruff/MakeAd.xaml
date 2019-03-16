@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="IAB330_Scruff.MakeAd"
+    Title="Add Animal">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" Margin="10">
+            <ScrollView>
+                <Grid RowSpacing="0"
+                      ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    
+                    <!--First page of animal adding-->
+                    <StackLayout x:Name="createAnimal" Grid.Row="0" IsVisible="true">
+                        <Label Text="Name"></Label> <!--Name label-->
+                        <Entry x:Name="nameInput"></Entry> <!--Name entry-->
+                        <Label Text="Date of Birth"></Label> <!--DOB label-->
+                        <DatePicker x:Name="dateBornInput"></DatePicker> <!--DOB date entry-->
+                        <Label Text="Breed"></Label> <!--Breed label-->
+                        
+                        <!--Breed picker-->
+                        <Picker x:Name="breedInput" Title="Animal">
+                            <Picker.Items>
+                                <x:String>Dalmatiner</x:String>
+                                <x:String>Rotwailer</x:String>
+                                <x:String>French sheppard</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        
+                        <!--Gender label-->
+                        <Label Text="Select animal gender"></Label>
+                        
+                        <!--Gender picker-->
+                        <Picker x:Name="sex" Title="Gender" SelectedIndex="0">
+                            <Picker.Items>
+                                <x:String>Male</x:String>
+                                <x:String>Female</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        
+                        <!--Animal type label-->
+                        <Label Text="Select animal type"></Label>
+                        
+                        <!--Animal type picker-->
+                        <Picker x:Name="animalType" SelectedIndex="0" Title="Animal type">
+                            <Picker.Items>
+                                <x:String>Dog</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        
+                        <!--Continue button-->
+                        <Button Text="Continue" Clicked="RegisterAnimal_ClickedAsync" VerticalOptions="End"></Button>
+                    </StackLayout>
+
+                    <!--Second page of animal adding-->
+                    <StackLayout x:Name="createAd" Grid.Row="1" IsVisible="false">
+                        <Label Text="Ad Title"></Label> <!--Ad title label-->
+                        <Entry x:Name="adTitleInput"></Entry> <!--Ad title entry-->
+                        <Label Text="Ad Description"></Label> <!--Ad description label-->
+                        <Editor x:Name="adTextInput" AutoSize="TextChanges"></Editor> <!--Ad description label-->
+                        <Label Text="Earliest Sale"></Label> <!--Earliest sale label-->
+                        <DatePicker x:Name="dateAvailableInput"></DatePicker> <!--Earliest sale date picker-->
+                        <Label Text="Ad Type"></Label> <!--Ad type label-->
+                        
+                        <!--Ad type label-->
+                        <Picker SelectedIndex="0" x:Name="adTypeInput" Title="Animal">
+                            <Picker.Items>
+                                <x:String>Sale</x:String>
+                                <x:String>Adoption</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        
+                        <Label Text="Price"></Label> <!--Price label-->
+                        <Entry Keyboard="Numeric" x:Name="priceInput"></Entry> <!--Price entry-->
+                        <Label Text="Street Address"></Label> <!--Street address label-->
+                        <Entry x:Name="streetAddressInput"></Entry> <!--Street address entry-->
+                        <Label Text="Postcode"></Label> <!--Postcode label-->
+                        <Entry Keyboard="Numeric" MaxLength="4" x:Name="zipCodeInput"></Entry> <!--Postcode entry-->
+                        <Button Text="Add" Clicked="RegisterAD_ClickedAsync" VerticalOptions="End"></Button> <!--Add button-->
+                    </StackLayout>
+                 </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

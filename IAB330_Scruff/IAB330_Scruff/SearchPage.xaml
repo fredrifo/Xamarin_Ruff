@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IAB330_Scruff.SearchPage"
+             Title="Search">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Margin="10">
+            <Label HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" Margin="10" FontSize="Large" Text="Search for animals"></Label> <!--Search label-->
+            <!--Breed picker-->
+            <Label VerticalTextAlignment="Center" Text="Select breed "></Label>
+            <Picker x:Name="breedInput" Title="Animal">
+                <Picker.Items>
+                    <x:String>Dalmatiner</x:String>
+                    <x:String>Rotwailer</x:String>
+                    <x:String>French sheppard</x:String>
+                </Picker.Items>
+            </Picker>
+            <!--Gender picker-->
+            <Label VerticalTextAlignment="Center" Text="Select Gender"></Label>
+            <Picker x:Name="sex" Title="Gender" SelectedIndex="0">
+                <Picker.Items>
+                    <x:String>Male</x:String>
+                    <x:String>Female</x:String>
+                </Picker.Items>
+            </Picker>
+            <!--Search button-->
+            <Label VerticalTextAlignment="Center" Text="Search text"></Label>
+            <Entry x:Name="searchText"></Entry>
+            <Button Text="Search" HorizontalOptions="CenterAndExpand" Clicked="Handle_Clicked"></Button>
+        </StackLayout>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

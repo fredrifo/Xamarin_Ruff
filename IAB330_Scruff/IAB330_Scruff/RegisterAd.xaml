@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="IAB330_Scruff.RegisterAd">
+    <StackLayout HorizontalOptions="Center">
+    <ScrollView>
+        
+        <Grid
+            RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackLayout x:Name="createAnimal" Grid.Row="0" IsVisible="true">
+            <Label HorizontalOptions="CenterAndExpand" FontSize="22" Text="New Ad - Animal information"></Label>
+             <Label Margin="22" Text="Provide some information about the animal you are making an ad for. All fields are required."></Label>
+             <Label Text="Enter animal name"></Label>
+             <Entry x:Name="nameInput"></Entry>
+             <Label Text="Enter animal birth date:"></Label>
+             <DatePicker x:Name="dateBornInput"></DatePicker>
+             <Label Text="Choose animal breed:"></Label>
+             <Picker x:Name="breedInput" Title="Animal">
+              <Picker.Items>
+                        <x:String>Dalmatiner</x:String>
+                        <x:String>Rotwailer</x:String>
+                        <x:String>French sheppard</x:String>
+              </Picker.Items>
+             </Picker>
+             <Label Text="Select animal gender"></Label>
+             <Picker x:Name="sex" Title="Gender" SelectedIndex="0">
+             <Picker.Items>
+              <x:String>Male</x:String>
+              <x:String>Female</x:String>
+              </Picker.Items>
+             </Picker>
+            <Label Text="Select animal type"></Label>
+            <Picker x:Name="animalType" SelectedIndex="0" Title="Animal type">
+                    <Picker.Items>
+                        <x:String>Dog</x:String>
+                    </Picker.Items>
+             </Picker>
+            <Button Text="Continue" Clicked="RegisterAnimal_ClickedAsync"></Button>
+             
+            </StackLayout>
+
+            <StackLayout x:Name="createAd" Grid.Row="1" IsVisible="false">
+              <Label HorizontalOptions="CenterAndExpand" FontSize="22" Text="New Ad - AD details"></Label>
+               <Label Margin="22" Text="Enter details for the ad you are making. All fields are required."></Label>
+                <Label Text="Write the title for your AD"></Label>
+                <Entry x:Name="adTitleInput"></Entry>
+                <Label Text="Enter a description for your AD"></Label>
+                <Editor x:Name="adTextInput" AutoSize="TextChanges"></Editor>
+                <Label Text="Select AD type"></Label>
+                <Picker SelectedIndex="0" x:Name="adTypeInput" Title="Animal">
+                        <Picker.Items>
+                            <x:String>Sale</x:String>
+                            <x:String>Adoption</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label Text="Ad price"></Label>
+                    <Entry Keyboard="Numeric" x:Name="priceInput"></Entry>
+                    <Label Text="Street address"></Label>
+                    <Entry x:Name="streetAddressInput"></Entry>
+                    <Label x:Name="zipCodeInput"></Label>
+                    <Button Text="Finish"></Button>
+                </StackLayout>
+        </Grid>
+        </ScrollView>
+    </StackLayout>
+</ContentView>
