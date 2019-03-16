@@ -53,21 +53,42 @@
                     </Grid>
                          
                     <!--For the three buttons posts, about, contact-->
-                    <Grid Grid.Row="5">
+                    <Grid Grid.Row="5" ColumnSpacing="0" BackgroundColor="#e0e1e2" HorizontalOptions="CenterAndExpand">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*"></ColumnDefinition>
-                            <ColumnDefinition Width="4*"></ColumnDefinition>
-                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
+                        
                         <!--Posts button-->
-                        <Button Clicked="Handle_Clicked" Text="Posts" Grid.Row="0" Grid.Column="0"></Button>
+                        <Button Clicked="Handle_Clicked" 
+                                Text="Posts" 
+                                Grid.Row="0" 
+                                Grid.Column="0" 
+                                Margin="0" 
+                                BackgroundColor="#e0e1e2" 
+                                HorizontalOptions="FillAndExpand"></Button>
+                        
                         <!--About button-->
-                        <Button Clicked="Handle_Clicked" Text="About" Grid.Row="0" Grid.Column="1"></Button>
+                        <Button Clicked="Handle_Clicked" 
+                                Text="About" 
+                                Grid.Row="0" 
+                                Grid.Column="1" 
+                                Margin="0" 
+                                BackgroundColor="#e0e1e2" 
+                                HorizontalOptions="FillAndExpand"></Button>
+                        
                         <!--Contact button-->
-                        <Button Clicked="Handle_Clicked" Text="Contact" Grid.Row="0" Grid.Column="2"></Button>
+                        <Button Clicked="Handle_Clicked" 
+                                Text="Contact" 
+                                Grid.Row="0" 
+                                Grid.Column="2" 
+                                Margin="0" 
+                                BackgroundColor="#e0e1e2" 
+                                HorizontalOptions="FillAndExpand"></Button>
                     </Grid>
                     
                     <!--The listview containing the animal's posts-->
@@ -104,7 +125,7 @@
                             </ListView.ItemTemplate>
                         </ListView>
                     </StackLayout>
-                    
+
                     <!--About tab content-->
                     <StackLayout Grid.Row="7" x:Name="about" IsVisible="false">
                         <Label FontSize="Large" HorizontalOptions="CenterAndExpand" Text="Information"></Label>
