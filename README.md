@@ -17,3 +17,7 @@ Created by:
 - Ivar Sandvik
 - John Tang
 - David McClarty
+
+Student reports:
+
+[a link](https://github.com/fredrifo/Ruff/tree/master/Student%20reports)
