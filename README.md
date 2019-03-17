@@ -20,4 +20,4 @@ Created by:
 
 Student reports:
 
-[-  Report folder](https://github.com/fredrifo/Ruff/tree/master/Student%20reports)
+[-  Folder in git](https://github.com/fredrifo/Ruff/tree/master/Student%20reports)
