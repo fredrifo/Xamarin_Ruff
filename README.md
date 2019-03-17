@@ -19,5 +19,4 @@ Created by:
 - David McClarty
 
 Student reports:
-
-[-  Folder in git](https://github.com/fredrifo/Ruff/tree/master/Student%20reports)
+- [Folder in git](https://github.com/fredrifo/Ruff/tree/master/Student%20reports)
