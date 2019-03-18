@@ -23,6 +23,7 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
+  <string>IAB330_Scruff</string>
   <key>NSCameraUsageDescription</key>
   <string>This app needs access to the camera to take photos.</string>
   <key>NSPhotoLibraryUsageDescription</key>
