@@ -24,18 +24,15 @@ namespace IAB330_Scruff
             navigationHeaderLabel.Text = User.currentUser.email;
             BindingContext = new MDPMasterViewModel();
             ListView = MenuItemsListView;
-
             // 
         }
 
-        public class MDPMasterViewModel : INotifyPropertyChanged
+        class MDPMasterViewModel : INotifyPropertyChanged
         {
             public ObservableCollection<MDPMenuItem> MenuItems { get; set; }
             
-
             public MDPMasterViewModel()
             {
-                
                 MenuItems = new ObservableCollection<MDPMenuItem>(new[]
                 {
                     new MDPMenuItem { Id = 0, Title = "Home", TargetType = typeof(SearchResults)},
@@ -45,8 +42,6 @@ namespace IAB330_Scruff
                     new MDPMenuItem { Id = 5, Title = "Logout", TargetType = typeof(Login)}
 
                 });
-
-                
             }
             
             #region INotifyPropertyChanged Implementation
@@ -60,6 +55,5 @@ namespace IAB330_Scruff
             }
             #endregion
         }
-
     }
 }

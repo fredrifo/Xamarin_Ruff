@@ -24,6 +24,9 @@
     <Compile Remove="AnimalRegister.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="MDPDetail.xaml.cs">
+      <DependentUpon>MDPDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Update="MDPMenuItem.cs">
       <SubType>Code</SubType>
     </Compile>
