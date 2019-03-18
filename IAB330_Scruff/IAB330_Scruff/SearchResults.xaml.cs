@@ -15,11 +15,12 @@ namespace IAB330_Scruff
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SearchResults : ContentPage
     {
-        public static string gender ="%";
+        public static string gender = "%";
         public static string breed = "%";
         public static string searchString = "%";
         public static List<AdClass> ads = new List<AdClass>(); //Obtain all the ads
         public static bool loading = false;
+        public static List<AdClass> adBuffer = new List<AdClass>();
 
         public SearchResults()
         {
@@ -46,42 +47,75 @@ namespace IAB330_Scruff
         /// </summary>
         protected override async void OnAppearing()
         {
-         
-            loadbar.IsVisible = true;
+            if (adBuffer.Count() > 0)
+            {
+                sss.HeightRequest = 121 * ads.Count;
+                sss.ItemsSource = adBuffer;
+
+                int x = await LoadAds();
+
+                if (ads.Equals(adBuffer))
+                {
+                    await DisplayAlert("Error", "Make sure you are logged in" + ads.Equals(adBuffer) + " -- ads" + ads.Count() + " -- Adbudder" + adBuffer.Count(), "Ok");
+                    sss.ItemsSource = ads;
+                }
+
+            }
+            else
+            {
+
+                sss.ItemsSource = ads;
+                LoadAds();
+            }
+        }
+        private async Task<int> LoadAds()
+        {
+
 
             try
             {
-                loading = true;
-                sss.ItemsSource = new List<AdClass>(); //Set the listviews item source to the list of ads
-                base.OnAppearing();
 
-                int status = await AdSearch.adSearch(gender, breed,searchString);
+                // base.OnAppearing();
+
+                int status = await AdSearch.adSearch(gender, breed, searchString);
                 gender = "%";
                 breed = "%";
                 searchString = "%";
-                if (status == 1) {
+                if (status == 1)
+                {
                     await DisplayAlert("Error", "Make sure you are logged in", "Ok");
                     loadbar.IsVisible = false;
-                    return;
+                    return 0;
                 }
-                if(status == 2) {
+                if (status == 2)
+                {
                     await DisplayAlert("Error", "Make sure you have a internet connection", "Ok");
                     loadbar.IsVisible = false;
-                    return;
+                    return 0;
                 }
-                if(status == 3) {
+                if (status == 3)
+                {
                     await DisplayAlert("Search", "No results", "Ok");
                     loadbar.IsVisible = false;
-                    return;
+                    return 0;
                 }
-                
+
 
                 ads = AdSearch.searchResults;
+                if (!adBuffer.Equals(ads))
+                {
+                    adBuffer = new List<AdClass>();
+                    foreach (AdClass x in ads)
+                    {
+                        adBuffer.Add(x);
+                    }
+                }
+
                 gender = "%";
                 breed = "%";
                 searchString = "%";
                 sss.HeightRequest = 121 * ads.Count;
-                sss.ItemsSource = ads;
+                sss.ItemsSource = adBuffer;
                 loadbar.IsVisible = false;
             }
             catch (Exception e)
@@ -91,6 +125,7 @@ namespace IAB330_Scruff
                 loading = false;
             }
             loading = false;
+            return 0;
         }
 
         /// <summary>
@@ -100,16 +135,16 @@ namespace IAB330_Scruff
         /// <param name="e"></param>
         private async void adSelectedAsync(object sender, EventArgs e)
         {
-            if(loading)
+            if (loading)
             {
                 return;
             }
 
             var lv = (ListView)sender;
-                if ((IAB330_Scruff.Models.AdClass)lv.SelectedItem == null)
-                {
-                    return;
-                }
+            if ((IAB330_Scruff.Models.AdClass)lv.SelectedItem == null)
+            {
+                return;
+            }
 
             AdClass myItem = (IAB330_Scruff.Models.AdClass)lv.SelectedItem;
             await Navigation.PushAsync(new AdPage(myItem.adId));
