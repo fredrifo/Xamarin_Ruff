@@ -33,7 +33,7 @@ namespace IAB330_Scruff
         //Opening camera on button click
         private async void openCamera_Clicked(object sender, EventArgs e)
         {
-            await CrossMedia.Current.Initialize();
+
 
             //If the phone is not capable of taking a photo or has no gallery, show error popup
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
@@ -43,19 +43,31 @@ namespace IAB330_Scruff
             }
 
             //Take a photo
-            var tempPicture = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
+            var tempPicture = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
             {
                 Directory = "images",
-                Name = "image.jpg"
+                SaveToAlbum = true,
+                CompressionQuality = 15,
+                CustomPhotoSize = 50,
+                PhotoSize = PhotoSize.MaxWidthHeight,
+                MaxWidthHeight = 1000,
+                DefaultCamera = CameraDevice.Rear,
             });
+            if (tempPicture == null)
+                return;
 
             //If a picture was taken, set it to the currentImage variable
-            if (tempPicture != null)
-            {
+            
                 currentFile = (MediaFile)tempPicture;
-                imagePreview.Source = ImageSource.FromStream(() => tempPicture.GetStream());
+                imagePreview.Source = ImageSource.FromStream(() =>
+                {
+                   var stream = tempPicture.GetStream();
+                   //tempPicture.Dispose();
+                    return stream;
+                });
+            
                 currentImage = currentFile;
-            }
+            
             return;
         }
 
@@ -63,7 +75,14 @@ namespace IAB330_Scruff
         private async void uploadPic_Clicked(object sender, EventArgs e)
         {
             //Select a photo from the gallery
-            var tempPicture = await CrossMedia.Current.PickPhotoAsync();
+            var tempPicture = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
+            {
+                CompressionQuality = 15,
+                PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium,
+                CustomPhotoSize = 50,
+                MaxWidthHeight = 1000,
+
+            });
             
             //Was a compatible photo selected?
             if (!CrossMedia.Current.IsPickPhotoSupported)
