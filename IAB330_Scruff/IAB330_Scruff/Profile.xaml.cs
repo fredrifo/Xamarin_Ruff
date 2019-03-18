@@ -52,8 +52,19 @@ namespace IAB330_Scruff
         private async void UploadProfileImage_ClickedAsync(object sender, EventArgs e)
         {
             stack0.ForceLayout();
+
+            //Pick a photo from the gallery
             MediaFile file;
-            file = await CrossMedia.Current.PickPhotoAsync(); //Pick a photo from the gallery
+            file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
+            {
+                CompressionQuality = 15,
+                PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium,
+                CustomPhotoSize = 50,
+                MaxWidthHeight = 1000,
+
+            });
+
+
             if (file == null) //If no photo was selected, return nothing
             {
                 return;
