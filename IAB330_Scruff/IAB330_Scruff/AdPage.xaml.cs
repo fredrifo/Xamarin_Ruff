@@ -24,10 +24,10 @@ namespace IAB330_Scruff
             //Set the app bar's title to thename of the animal and the price
             Title = t.animal.name + " $" + t.adPrice;
             //Insert all the animal data into the fields
-            dogName1.Text = t.animal.name;
+            dogName1.Text = "Name: " + t.animal.name;
             dogName.Text = t.animal.name;
             dogBreed.Text = t.animal.breed;
-            dogPrice.Text = "$ " + t.adPrice.ToString();
+            dogPrice.Text = "Price:" + " $" + t.adPrice.ToString();
             dogGender.Text = t.animal.gender;
 
             //Insert all the ad details in to the fields
@@ -38,7 +38,7 @@ namespace IAB330_Scruff
             phoneNumber.Text = t.user.phoneNumber;
             zipCode.Text = t.zipCode;
             email.Text = t.user.email;
-            
+
             //Set the profile image 
             if (t.user.profileImage != null)
             {
@@ -50,7 +50,7 @@ namespace IAB330_Scruff
                 adImage.Source = t.adImage.Source;
             }
 
-            foreach(PostClass n in t.posts)
+            foreach (PostClass n in t.posts)
             {
                 n.postImage = ImageConverter.ConvertFrom(n.base64);
             }
@@ -59,11 +59,13 @@ namespace IAB330_Scruff
             lists.ItemsSource = t.posts;
 
             //If the user owns the animal, then it will show the "add post" and "change photo" buttons
-            if(t.owner)
+            if (t.owner)
             {
                 upload1.IsVisible = true;
                 upload2.IsVisible = true;
-            } else {
+            }
+            else
+            {
                 upload1.IsVisible = false;
                 upload2.IsVisible = false;
             }
@@ -73,15 +75,20 @@ namespace IAB330_Scruff
         void Handle_Clicked(object sender, System.EventArgs e)
         {
             Button t = (Button)sender;
-            if(t.Text == "Posts") {
+            if (t.Text == "Posts")
+            {
                 about.IsVisible = false;
                 contact.IsVisible = false;
                 posts.IsVisible = true;
-            } else if (t.Text == "About") {
+            }
+            else if (t.Text == "About")
+            {
                 about.IsVisible = true;
                 contact.IsVisible = false;
                 posts.IsVisible = false;
-            } else {
+            }
+            else
+            {
                 about.IsVisible = false;
                 contact.IsVisible = true;
                 posts.IsVisible = false;
@@ -94,11 +101,11 @@ namespace IAB330_Scruff
             Button t = (Button)sender;
             if (t.Text == "Add Post")
             {
-                await Navigation.PushAsync(new PictureUploader("post",tempAdID));
+                await Navigation.PushAsync(new PictureUploader("post", tempAdID));
             }
             else
             {
-                await Navigation.PushAsync(new PictureUploader("advertisement",tempAdID));
+                await Navigation.PushAsync(new PictureUploader("advertisement", tempAdID));
             }
         }
     }
