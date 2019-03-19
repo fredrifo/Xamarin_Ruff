@@ -1,74 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="IAB330_Scruff.AdPage">
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="IAB330_Scruff.AdPage">
     <ContentPage.Content>
-        <StackLayout Margin="0">
-
-            <Grid x:Name="content" Margin="0" Padding="0">
+        <StackLayout BackgroundColor="#e0e1e2" HeightRequest="2000">
+            <Grid x:Name="content">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-
-
-
-
                 <!--For the animal name and price label-->
-                <Grid Grid.Row="0" Margin="5">
+                <Grid Grid.Row="0" Margin="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="8*" />
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"></ColumnDefinition>
-                        <ColumnDefinition Width="3*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
                     <!--Progress loading label-->
-                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
-                               x:Name="adTitle" HorizontalOptions="CenterAndExpand" 
-                               FontSize="Large" Text="Loading"></Label>
-
+                    <Label Grid.Row="0" x:Name="adTitle" HorizontalOptions="CenterAndExpand" FontSize="Large" TextColor="Black" Text="Loading" />
                     <!--Animal image-->
-                    <Image Grid.Row="1"  Grid.Column="1" Grid.RowSpan="2"
-                           x:Name="adImage" HorizontalOptions="End"
-                           HeightRequest="150"
-                           WidthRequest="300"
-                               ></Image>
-
-                    <!--Animal name-->
-                    <StackLayout Grid.Row="1" Grid.Column="0">
-
-                        <Label Grid.Row="1" Grid.Column="0"
-                               HorizontalOptions="Center" VerticalOptions="Start" 
-                               x:Name="dogName1" Text="" FontSize="Medium"/>
-
-                    </StackLayout>
-
-
-                    <StackLayout Grid.Row="2" Grid.Column="0">
-
-                        <Label Grid.Row="3"  Grid.Column="0" 
-                               HorizontalOptions="Center" VerticalOptions="Start" 
-                               x:Name="dogPrice" Text="" FontSize="Medium"></Label>
-
-                    </StackLayout>
-
-                    <!--Animal description label-->
-                    <Label HorizontalOptions="End" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" x:Name="adText" ></Label>
+                    <Image Grid.Row="1" x:Name="adImage" HorizontalOptions="CenterAndExpand" HeightRequest="250" />
                 </Grid>
-
-
-
-
                 <!--For the three buttons posts, about, contact-->
-                <Grid Grid.Row="2" ColumnSpacing="0" HorizontalOptions="CenterAndExpand" BackgroundColor="#e0e1e2" Margin="0">
+                <Grid Grid.Row="1" ColumnSpacing="0.3" BackgroundColor="#606060" HorizontalOptions="Center">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
@@ -79,128 +30,84 @@
                         <ColumnDefinition Width="3*"></ColumnDefinition>
                         <ColumnDefinition Width="3*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-
                     <!--For the change photo button-->
-                    <Button x:Name="upload2" 
-                            IsVisible="false" 
-                            Grid.Row="0" 
-                            Grid.Column="0"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="End" 
-                            Text="Change Photo" 
-                            Margin="0"
-                            BackgroundColor="#e0e1e2"
-                            Clicked="Handle_Clicked_1"></Button>
-
+                    <Button x:Name="upload2" IsVisible="false" Grid.Row="0" Grid.Column="0" HorizontalOptions="Fill" VerticalOptions="Fill" Text="Change Photo" Margin="0" BackgroundColor="#e0e1e2" Clicked="Handle_Clicked_1"></Button>
                     <!--Posts button-->
-                    <Button Clicked="Handle_Clicked" 
-                                Text="Posts" 
-                                Grid.Row="0" 
-                                Grid.Column="1" 
-                                Margin="0" 
-                                BackgroundColor="#e0e1e2" 
-                                HorizontalOptions="FillAndExpand"></Button>
-
+                    <Button Clicked="Handle_Clicked" x:Name="btn_Posts" Text="Posts" Grid.Row="0" Grid.Column="1" Margin="0" BackgroundColor="#c4c4c4" HorizontalOptions="Fill"></Button>
                     <!--About button-->
-                    <Button Clicked="Handle_Clicked" 
-                                Text="About" 
-                                Grid.Row="0" 
-                                Grid.Column="2" 
-                                Margin="0" 
-                                BackgroundColor="#e0e1e2" 
-                                HorizontalOptions="FillAndExpand"></Button>
-
+                    <Button Clicked="Handle_Clicked" x:Name="btn_About" Text="About" Grid.Row="0" Grid.Column="2" Margin="0" BackgroundColor="#e0e1e2" HorizontalOptions="Fill"></Button>
                     <!--Contact button-->
-                    <Button Clicked="Handle_Clicked" 
-                                Text="Owner" 
-                                Grid.Row="0" 
-                                Grid.Column="3" 
-                                Margin="0" 
-                                BackgroundColor="#e0e1e2" 
-                                HorizontalOptions="FillAndExpand"></Button>
+                    <Button Clicked="Handle_Clicked" x:Name="btn_Owner" Text="Owner" Grid.Row="0" Grid.Column="3" Margin="0" BackgroundColor="#e0e1e2" HorizontalOptions="Fill"></Button>
                     <!--Add post button-->
-                    <Button x:Name="upload1" IsVisible="false" 
-                            Grid.Row="0" 
-                            Grid.Column="4"
-                            Margin="0"
-                            BackgroundColor="#e0e1e2"
-                            VerticalOptions="End" HorizontalOptions="FillAndExpand"
-                            Text="Add Post" Clicked="Handle_Clicked_1"></Button>
+                    <Button x:Name="upload1" IsVisible="false" Grid.Row="0" Grid.Column="4" Margin="0" BackgroundColor="#e0e1e2" VerticalOptions="Fill" HorizontalOptions="Fill" Text="Add Post" Clicked="Handle_Clicked_1"></Button>
                 </Grid>
             </Grid>
-            <ScrollView BackgroundColor="#f2f9fc">
-                <Grid BackgroundColor="#f2f9fc" Padding="0" Margin="0">
+            <ScrollView BackgroundColor="#e8e9ea">
+                <Grid Padding="0" Margin="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="1000" />
                     </Grid.RowDefinitions>
-
                     <!--The listview containing the animal's posts-->
-
-                    <StackLayout Grid.Row="1" x:Name="posts" Margin="0" BackgroundColor="#f2f9fc" Padding="0">
-                        <ListView x:Name="lists" RowHeight="90" BackgroundColor="#f2f9fc" Margin="0">
+                    <StackLayout Grid.Row="0" x:Name="posts" Margin="0" BackgroundColor="#ededed" Padding="0">
+                        <ListView x:Name="lists" RowHeight="90"  Margin="0">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
                                         <ViewCell.View>
-
                                             <!--Format for each post-->
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="6*"></ColumnDefinition>
-                                                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="1.2*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="3*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-
                                                 <Grid.RowDefinitions>
-                                                    <RowDefinition Height="0.8*"></RowDefinition>
-                                                    <RowDefinition Height="0.2*"></RowDefinition>
+                                                    <RowDefinition Height="0.7*"></RowDefinition>
+                                                    <RowDefinition Height="0.3*"></RowDefinition>
                                                 </Grid.RowDefinitions>
-
                                                 <!--Post image-->
                                                 <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="{Binding postImage.Source}"></Image>
                                                 <!--Post title label-->
-                                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding title}"></Label>
+                                                <Label Grid.Column="1" BackgroundColor="#c4c4c4" Grid.Row="0" HorizontalOptions="FillAndExpand" Text="{Binding title}"></Label>
                                                 <!--Post date label-->
                                                 <Label Grid.Column="1" Grid.Row="1" Text="{Binding date}"></Label>
                                             </Grid>
-
                                         </ViewCell.View>
                                     </ViewCell>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
                     </StackLayout>
-
                     <!--About tab content-->
-                    <StackLayout Grid.Row="1" x:Name="about" IsVisible="false" BackgroundColor="#f2f9fc">
-                        <Label FontSize="Large" HorizontalOptions="CenterAndExpand" Text="Information"></Label>
-                        <Label FontSize="10" HorizontalOptions="CenterAndExpand" Text="Animal type:"></Label>
-                        <Label x:Name="animalType" FontSize="15" HorizontalOptions="CenterAndExpand" Text="Dog"></Label>
-                        <Label FontSize="10" HorizontalOptions="CenterAndExpand" Text="Name:"></Label>
-                        <Label x:Name="dogName" FontSize="15" HorizontalOptions="CenterAndExpand" Text="Layla Semester"></Label>
-                        <Label FontSize="10" HorizontalOptions="CenterAndExpand" Text="Breed:"></Label>
-                        <Label x:Name="dogBreed" FontSize="15" HorizontalOptions="CenterAndExpand" Text="Labradour"></Label>
-                        <Label FontSize="10" HorizontalOptions="CenterAndExpand" Text="Animal gender:"></Label>
-                        <Label x:Name="dogGender" FontSize="15" HorizontalOptions="CenterAndExpand" Text="Male"></Label>
-                        <Label FontSize="10" HorizontalOptions="CenterAndExpand" Text="Date born:"></Label>
-                        <Label x:Name="dogBorn" FontSize="15" HorizontalOptions="CenterAndExpand" Text="02.09.2018"></Label>
+                    <StackLayout Grid.Row="0" x:Name="about" IsVisible="false">
+                        <!--Animal description label-->
+                        <Label  x:Name="adText" FontSize="12" HorizontalOptions="StartAndExpand" Text="Advertisement text:"></Label>
+                        <Label x:Name="dogName" FontSize="14" HorizontalOptions="StartAndExpand" Text="Dog name:"></Label>
+                        <Label x:Name="dogPrice" FontSize="14" HorizontalOptions="StartAndExpand" Text="Dog price:"></Label>
+                        <Label x:Name="animalType" FontSize="14" HorizontalOptions="StartAndExpand" Text="Animal type:"></Label>
+                        <Label x:Name="dogBreed" FontSize="14" HorizontalOptions="StartAndExpand" Text="Labradour"></Label>
+                        <Label x:Name="dogGender" FontSize="14" HorizontalOptions="StartAndExpand" Text="Male"></Label>
+                        <Label x:Name="dogBorn" FontSize="14" HorizontalOptions="StartAndExpand" Text="02.09.2018"></Label>
                     </StackLayout>
-
                     <!--Contact tab content-->
-                    <StackLayout x:Name="contact" Grid.Row="1" IsVisible="false" BackgroundColor="#f2f9fc">
-                        <Label FontSize="17" HorizontalOptions="CenterAndExpand" Text="Owner"></Label>
-                        <Image x:Name="userImage" HeightRequest="120" WidthRequest="120"></Image>
-                        <Label FontSize="10" HorizontalOptions="CenterAndExpand" Text="Advertiser name:"></Label>
-                        <Label x:Name="advertiserName" FontSize="15" HorizontalOptions="CenterAndExpand" Text="Layla Semester"></Label>
-                        <Label FontSize="10" HorizontalOptions="CenterAndExpand" Text="E-mail:"></Label>
-                        <Label x:Name="email" FontSize="15" HorizontalOptions="CenterAndExpand" Text="test@live.no"></Label>
-                        <Label FontSize="10" HorizontalOptions="CenterAndExpand" Text="Phone number:"></Label>
-                        <Label x:Name="phoneNumber" FontSize="15" HorizontalOptions="CenterAndExpand" Text="545455454"></Label>
-                        <Label FontSize="10" HorizontalOptions="CenterAndExpand" Text="Street Address:"></Label>
-                        <Label x:Name="streetAddress" FontSize="15" HorizontalOptions="CenterAndExpand" Text="Leopard street 64"></Label>
-                        <Label FontSize="10" HorizontalOptions="CenterAndExpand" Text="Zip-Code:"></Label>
-                        <Label x:Name="zipCode" FontSize="15" HorizontalOptions="CenterAndExpand" Text="1783"></Label>
-                    </StackLayout>
+                    <Grid x:Name="contact" Grid.Row="0" IsVisible="false">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label x:Name="advertiserName" Grid.Row="0" Grid.Column="0" FontSize="15" HorizontalOptions="Start" Text="Layla Semester"></Label>
+                        <Label x:Name="email" Grid.Row="1" Grid.Column="0" FontSize="15" HorizontalOptions="Start" Text="test@live.no"></Label>
+                        <Label x:Name="phoneNumber" Grid.Row="2" Grid.Column="0" FontSize="15" HorizontalOptions="Start" Text="545455454"></Label>
+                        <Label x:Name="streetAddress" Grid.Row="3" Grid.Column="0" FontSize="15" HorizontalOptions="Start" Text="Leopard street 64"></Label>
+                        <Label x:Name="zipCode" Grid.Row="4" Grid.Column="0" FontSize="15" HorizontalOptions="Start" Text="1783"></Label>
+                        <Image x:Name="userImage" Grid.Row="0" Grid.Column="1" Grid.RowSpan="5" VerticalOptions="Start"></Image>
+                    </Grid>
                 </Grid>
             </ScrollView>
         </StackLayout>
