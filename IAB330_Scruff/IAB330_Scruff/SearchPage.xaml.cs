@@ -21,7 +21,8 @@ namespace IAB330_Scruff
             try
             {
                 SearchResults.breed = breedInput.Items[breedInput.SelectedIndex];
-            } catch (Exception n) {
+            }
+            catch (Exception n) {
                 SearchResults.breed = "%";
             }
             try

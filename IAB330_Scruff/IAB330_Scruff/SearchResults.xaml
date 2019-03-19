@@ -10,11 +10,8 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <Grid >
+        <Grid BackgroundColor="White">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" IsVisible="true" HorizontalOptions="CenterAndExpand" x:Name="loadbar">
@@ -22,11 +19,20 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Margin="10" HorizontalOptions="CenterAndExpand" TextColor="Black" Text="Loading results"></Label>
+                <Label Grid.Row="0" 
+                       Margin="10" 
+                       HorizontalOptions="CenterAndExpand" 
+                       TextColor="Black" 
+                       Text="Loading results"/>
+
                 <ActivityIndicator Grid.Row="1" Color="Black" IsRunning="true"/>
             </Grid>
             <!--Listview for the ads shown-->
-            <ListView x:Name="sss" RowHeight="120" ItemTapped="adSelectedAsync" Grid.Row="0">
+            <ListView x:Name="sss" 
+                      RowHeight="120" 
+                      ItemTapped="adSelectedAsync" 
+                      Grid.Row="0"
+                      Margin="0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -56,6 +62,7 @@
                                     <!--Ad image-->
                                     <Image Grid.Column="0" Grid.Row="0" Aspect="AspectFill" Source="{Binding adImage.Source}"></Image>
                                 </Grid>
+
                             </ViewCell.View>
                         </ViewCell>
                     </DataTemplate>

@@ -114,7 +114,7 @@ namespace IAB330_Scruff
                 gender = "%";
                 breed = "%";
                 searchString = "%";
-                sss.HeightRequest = 121 * ads.Count;
+                //sss.HeightRequest = 120 * ads.Count;
                 sss.ItemsSource = adBuffer;
                 loadbar.IsVisible = false;
             }
