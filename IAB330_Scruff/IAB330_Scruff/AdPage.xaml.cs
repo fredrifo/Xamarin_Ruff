@@ -24,20 +24,21 @@ namespace IAB330_Scruff
             //Set the app bar's title to thename of the animal and the price
             Title = t.animal.name + " $" + t.adPrice;
             //Insert all the animal data into the fields
-            dogName1.Text = "Name: " + t.animal.name;
-            dogName.Text = t.animal.name;
-            dogBreed.Text = t.animal.breed;
-            dogPrice.Text = "Price:" + " $" + t.adPrice.ToString();
-            dogGender.Text = t.animal.gender;
+            dogName.Text =          "Name: " + t.animal.name;
+            dogBreed.Text =         "Breed: " + t.animal.breed;
+            dogPrice.Text =         "Price: " + "$" + t.adPrice.ToString();
+            dogGender.Text =        "Gender: " + t.animal.gender;
+            dogBorn.Text =          "Birth date: " + t.animal.dateBorn;
+            animalType.Text =       "Animal type: " + t.animal.animalType;
 
             //Insert all the ad details in to the fields
             adText.Text = t.adText;
             adTitle.Text = t.adTitle;
-            streetAddress.Text = t.streetAddress;
-            advertiserName.Text = t.user.firstName + " " + t.user.lastName;
-            phoneNumber.Text = t.user.phoneNumber;
-            zipCode.Text = t.zipCode;
-            email.Text = t.user.email;
+            streetAddress.Text =    "Address: " + t.streetAddress;
+            advertiserName.Text =   "Name: " + t.user.firstName + " " + t.user.lastName;
+            phoneNumber.Text =      "Phone: " + t.user.phoneNumber;
+            zipCode.Text =          "Zip Code: " + t.zipCode;
+            email.Text =            "Email: " + t.user.email;
 
             //Set the profile image 
             if (t.user.profileImage != null)
@@ -77,18 +78,39 @@ namespace IAB330_Scruff
             Button t = (Button)sender;
             if (t.Text == "Posts")
             {
+
+                //Coloring all the buttons
+                //TODO: Make a functions that does this
+                btn_Posts.BackgroundColor = Color.FromHex("#c4c4c4");
+                btn_Owner.BackgroundColor = Color.FromHex("#e0e1e2");
+                btn_About.BackgroundColor = Color.FromHex("#e0e1e2");
+
                 about.IsVisible = false;
                 contact.IsVisible = false;
                 posts.IsVisible = true;
             }
             else if (t.Text == "About")
             {
+                //Coloring all the buttons
+                //TODO: Make a functions that does this
+                btn_Posts.BackgroundColor = Color.FromHex("#e0e1e2");
+                btn_Owner.BackgroundColor = Color.FromHex("#e0e1e2");
+                btn_About.BackgroundColor = Color.FromHex("#c4c4c4");
+
+
                 about.IsVisible = true;
                 contact.IsVisible = false;
                 posts.IsVisible = false;
             }
             else
             {
+                //Coloring all the buttons
+                //TODO: Make a functions that does this
+                btn_Posts.BackgroundColor = Color.FromHex("#e0e1e2");
+                btn_Owner.BackgroundColor = Color.FromHex("#c4c4c4");
+                btn_About.BackgroundColor = Color.FromHex("#e0e1e2");
+
+
                 about.IsVisible = false;
                 contact.IsVisible = true;
                 posts.IsVisible = false;

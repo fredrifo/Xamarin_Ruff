@@ -67,7 +67,7 @@
                                                 <!--Post image-->
                                                 <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="{Binding postImage.Source}"></Image>
                                                 <!--Post title label-->
-                                                <Label Grid.Column="1" BackgroundColor="#c4c4c4" Grid.Row="0" HorizontalOptions="FillAndExpand" Text="{Binding title}"></Label>
+                                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding title}"></Label>
                                                 <!--Post date label-->
                                                 <Label Grid.Column="1" Grid.Row="1" Text="{Binding date}"></Label>
                                             </Grid>
