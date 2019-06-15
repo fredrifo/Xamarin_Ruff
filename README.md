@@ -19,4 +19,6 @@ Created by:
 - David McClarty
 
 Student reports:
-- [Folder in git](https://github.com/fredrifo/Ruff/tree/master/Student%20reports)
+- [Planning phase](https://github.com/fredrifo/PDF_Documentation/blob/master/Ruff/Documentation/Assessment_1.pdf)
+- [Executive summary](https://github.com/fredrifo/PDF_Documentation/blob/master/Ruff/Documentation/Assessment_2.pdf)
+- [Final report (images of application)](https://github.com/fredrifo/PDF_Documentation/blob/master/Ruff/Documentation/Assessment_3.pdf)
